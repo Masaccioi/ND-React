@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Password from './password/password.js'
 class App extends Component {
   constructor(){

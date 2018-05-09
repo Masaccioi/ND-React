@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './password.css';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import closeIcon from './img/redenvelopel_close_icon_normal.png'
 import backspaceIcon from './img/redenvelopel_keyboard_Backspace_normal.png'
 
@@ -47,7 +46,7 @@ class Keyboard extends Component {
     } else if (i === 11){
       return (
         <td className={ 'numberKeyboardItem' } onClick={ () => this.onDelete() }>
-          <img className={ 'backspaceIcon' } src={ backspaceIcon }/>
+          <img alt='icon' className={ 'backspaceIcon' } src={ backspaceIcon }/>
         </td>
       )
     } else {
@@ -61,7 +60,7 @@ class Keyboard extends Component {
     return (
       <div>
         <div className='numberKeyboardHeader'>
-          <img src={ closeIcon } className= { 'closeIcon' } onClick={ this.props.onCancel }/>
+          <img alt='icon' src={ closeIcon } className= { 'closeIcon' } onClick={ this.props.onCancel }/>
           <p className='numberKeyboardTitle'>{ this.props.title }</p>
         </div>
         <div className='numberList'>
@@ -69,7 +68,9 @@ class Keyboard extends Component {
             {
               [0,1,2,3,4,5].map(i => {
                 return (
-                  <div key={i} className={ 'numberItem' + ' ' + (this.state.result.length > 0 ? 'active' : '') }><span>{this.state.result.length > i ? '*' : '' }</span></div>
+                  <div key={i} className={'numberItem ' + (this.state.result.length > 0 ? 'active' : '')}>
+                    <span>{this.state.result.length > i ? '*' : '' }</span>
+                  </div>
                 )
               })
             }
@@ -118,9 +119,9 @@ class Password extends Component {
   render() {
     return (
       <div>
-        <div className={'password' + ' ' + (this.props.visible ? 'show' : '')}>
+        <div className={'password ' + (this.props.visible ? 'show' : '')}>
           <div className='mask' onClick={() => this.maskClose() }></div>
-          <div className={'keyboard' + ' ' + (this.props.visible ? 'in' : 'out')}>
+          <div className={'keyboard ' + (this.props.visible ? 'in' : 'out')}>
             <Keyboard onChange={this.props.onChange}
               onCancel={this.props.onCancel}
               title={this.props.title}

@@ -1,0 +1,6 @@
+{
+    "git.ignoreLimitWarning": true,
+    "eslint.options": {
+        "configFile": "./keyboard/.eslintrc.js"
+    }
+}
